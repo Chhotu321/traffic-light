@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Light</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="traffic-light">
+        <div class="light red"></div>
+        <div class="light yellow"></div>
+        <div class="light green"></div>
+    </div>
+
+    <script>
+
+const lights = document.querySelectorAll('.light');
+let currentIndex = 0;
+
+function changeLight() {
+    lights.forEach(light => light.classList.remove('on'));
+    lights[currentIndex].classList.add('on');
+    currentIndex = (currentIndex + 1) % lights.length;
+}
+
+setInterval(changeLight, 1000);
+
+    </script>
+
+    <style>
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #333;
+}
+
+.traffic-light {
+    width: 100px;
+    background-color: black;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+.light {
+    width: 60px;
+    height: 60px;
+    margin: 15px auto;
+    border-radius: 50%;
+    background-color: #111;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.5s;
+}
+
+.red.on {
+    background-color: red;
+}
+
+.yellow.on {
+    background-color: yellow;
+}
+
+.green.on {
+    background-color: green;
+}
+
+    </style>
+</body>
+</html>
